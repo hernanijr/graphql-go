@@ -8,7 +8,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/hernanijr/gqlgen-todos/graph/model"
+	"github.com/hernanijr/graphql-go/gqlgen-todos/graph/model"
 )
 
 // CreateCategory is the resolver for the createCategory field.

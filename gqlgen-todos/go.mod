@@ -1,4 +1,4 @@
-module github.com/hernanijr/gqlgen-todos
+module github.com/hernanijr/graphql-go/gqlgen-todos
 
 go 1.20
 
