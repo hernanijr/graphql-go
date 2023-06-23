@@ -1,6 +1,6 @@
 package graph
 
-import "github.com/hernanijr/graphql-go/gqlgen-todos/internal/database"
+import "github.com/hernanijr/graphql-go/internal/database"
 
 // This file will not be regenerated automatically.
 //
