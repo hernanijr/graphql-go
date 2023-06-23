@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"log"
 	"net/http"
 	"os"
@@ -17,12 +18,12 @@ const defaultPort = "8080"
 func main() {
 	db, err := sql.Open("sqlite3", "./data.db")
 	if err != nil {
-		log.Fatalf("failed to open database",err)
+		log.Fatalf("failed to open database", err)
 	}
-	defer.db.Close()
+	defer db.Close()
 
 	categoryDB := database.NewCategory(db)
-
+	courseDB := database.NewCourse(db)
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = defaultPort
@@ -30,6 +31,7 @@ func main() {
 
 	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{
 		CategoryDB: categoryDB,
+		CourseDB:   courseDB,
 	}}))
 
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
